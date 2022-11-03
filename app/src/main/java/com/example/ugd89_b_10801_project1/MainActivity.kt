@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
             if (acceleration > 12 && countShake == 0) {
                 countShake = countShake + 1
                 sendNotification1()
-                Toast.makeText(applicationContext, "Shake event detected", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Notif udah masuk, boleh di cek :v", Toast.LENGTH_SHORT).show()
             }
         }
         override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
