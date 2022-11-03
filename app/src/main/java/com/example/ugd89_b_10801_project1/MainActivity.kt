@@ -8,6 +8,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.hardware.*
+import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -157,6 +159,7 @@ class MainActivity : AppCompatActivity() {
 
         val broadcastIntent : Intent = Intent(this, NotificationReceiver::class.java)
 
+        val defaultSoundUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
         val actionIntent = PendingIntent.getBroadcast(this,0,broadcastIntent,PendingIntent.FLAG_IMMUTABLE)
 
@@ -167,6 +170,7 @@ class MainActivity : AppCompatActivity() {
             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
             .setColor(Color.BLUE)
             .setAutoCancel(true)
+            .setSound(defaultSoundUri)
             .setOnlyAlertOnce(true)
             .setContentIntent(pendingIntent)
             .addAction(R.mipmap.ic_launcher,"Toast",actionIntent)
